@@ -1,6 +1,6 @@
 # app-demo-spring
 
-# Overview
+##  Overview
 
 This is a simple poc to demonstrate the Observability patterns: 
    
@@ -11,7 +11,7 @@ This is a simple poc to demonstrate the Observability patterns:
 [prometheus]: https://prometheus.io/
 [grafana]: https://grafana.com/
 
-##Requirements
+## Requirements
 - [docker] and [docker-compose]
 
 [docker]: https://www.docker.com/
@@ -57,6 +57,6 @@ password: admin
     /grafana/grafana-template.json
 
 
-6 - Open and Check the Jaeger
+6 - Open and Check the JaegerEvent-Based Observability
 
     - http://localhost:16686
