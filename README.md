@@ -4,7 +4,7 @@
 
 This is a simple poc to demonstrate the Observability patterns: 
    
-*Tools used:* [jaeger], [micrometer] and [prometheus] to obtain the data and [grafana] to show visualize the data obtained
+*Tools used:* [jaeger], [micrometer] and [prometheus] to obtain the data and [grafana] to show visualize the data
 
 [jaeger]: https://www.jaegertracing.io/
 [micrometer]: https://micrometer.io
@@ -17,12 +17,13 @@ This is a simple poc to demonstrate the Observability patterns:
 [docker]: https://www.docker.com/
 [docker-compose]: https://docs.docker.com/compose/
 
-#Start
+# Start
 
 1 - Start all services grafana, prometheus, jaeger and application using this command:
 
  ``docker-compose up --build``
  
+##
 
 Exposes endpoints:
 
