@@ -1,0 +1,45 @@
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /api/v1
+
+# Spring
+spring:
+  application:
+    name: ${APPLICATION_NAME:app-demo}
+    request-interceptor:
+      threshold: ${REQUEST_LOG_THRESHOLD:5000}
+      enabled: ${REQUEST_LOG_ENABLED:true}
+
+# Prometheus
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ${ACTUATOR_ENDPOINTS:info,health,prometheus}
+    prometheus:
+      enabled: ${PROMETHEUS_ENABLED:true}
+    metrics:
+      export:
+        prometheus:
+          enabled: ${PROMETHEUS_ENABLED:true}
+          descriptions: ${PROMETHEUS_DESCRIPTION_ENABLED:true}
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+opentracing:
+  jaeger:
+    enabled: ${JAEGER_ENABLED:true}
+    service-name: ${spring.application.name}
+    log-spans: ${OPENTRACING_LOG_SPANS:false}
+    http-sender:
+      url: ${JAEGER_ENDPOINT:http://localhost:14268/api/traces}
+    probabilistic-sampler:
+      sampling-rate: ${JAEGER_SAMPLER:1}
+  spring:
+    cloud:
+      jdbc:
+        enabled: ${JAEGER_JDBC:false}
+    web:
+      skip-pattern: ${JAEGER_SKIP_PATTERN:/actuator.*}
