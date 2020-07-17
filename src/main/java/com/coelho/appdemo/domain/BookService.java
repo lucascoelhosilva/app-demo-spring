@@ -5,7 +5,6 @@ import java.util.Collection;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lombok.val;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +18,8 @@ public class BookService {
   @Async
   public Book create(@NonNull Book book) {
     log.info("Creating {}", book);
-    val savedBook = repository.save(book);
 
-    return savedBook;
+    return repository.save(book);
   }
 
   public Collection<Book> get() {

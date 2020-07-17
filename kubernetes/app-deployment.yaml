@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-demo
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-demo
+  template:
+    spec:
+      containers:
+        - name: app-demo
+          image: app-demo
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DATASOURCE_URL
+              value: "jdbc:mysql://localhost:3306/app_demo?useSSL=false"
+            - name: DB_USERNAME
+              value: "app_demo_username"
+            - name: DB_PASSWORD
+              value: "app_demo_password"

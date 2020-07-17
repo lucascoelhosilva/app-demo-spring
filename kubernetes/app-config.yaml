@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-demo
+  namespace: dev
+data:
+  PORT: "8080"
+  DATABASE_URL: "jdbc:postgresql://postgres-dev:5432/app"
+  DATABASE_USERNAME: "app_username"
+  DATABASE_PASSWORD: "app_password"

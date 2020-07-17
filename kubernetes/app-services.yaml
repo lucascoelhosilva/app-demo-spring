@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: api-finances
+  namespace: dev-to
+spec:
+  selector:
+    app: api-finances
+  type: NodePort
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
